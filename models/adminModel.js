@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const adminModel = new Schema(
+const adminSchema = new Schema(
   {
     userName: {
       type: String,
@@ -29,11 +29,11 @@ const adminModel = new Schema(
       type: String,
     },
     role: {
-      type: Number,
+      type: String,
       default: "admin",
     },
   },
   { collection: "Admin", timestamps: true }
 );
-const Admin = model("Admin", adminModel);
+const Admin = model("Admin", adminSchema);
 export default Admin;

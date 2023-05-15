@@ -57,7 +57,7 @@ class Controller {
     });
 
     // Check if userName or password is provided
-    if (!email || !password) {
+    if (!userName || !password) {
       return res.status(400).json({
         message: "Username or password is not presented",
       });

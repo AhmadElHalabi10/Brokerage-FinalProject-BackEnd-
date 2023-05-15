@@ -9,6 +9,7 @@ import cors from "cors";
 import adminRoute from "./routes/adminRoute.js";
 import contactUsRoute from "./routes/contactUsRoute.js";
 import aboutUsRoute from "./routes/aboutUsRoute.js";
+import propertyRoute from "./routes/propertyRoute.js";
 
 dotenv.config();
 await connectDB();
@@ -35,6 +36,7 @@ app.use(cors());
 app.use("/auth", adminRoute);
 app.use("/contactus", contactUsRoute);
 app.use("/aboutus", aboutUsRoute);
+app.use("/property", propertyRoute);
 
 app.listen(
   PORT,
