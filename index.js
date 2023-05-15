@@ -10,6 +10,7 @@ import adminRoute from "./routes/adminRoute.js";
 import aboutUsRoute from "./routes/aboutUsRoute.js";
 import propertyRoute from "./routes/propertyRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
+import reviewRoute from "./routes/reviewRoute.js";
 
 dotenv.config();
 await connectDB();
@@ -37,6 +38,7 @@ app.use("/auth", adminRoute);
 app.use("/aboutus", aboutUsRoute);
 app.use("/property", propertyRoute);
 app.use("/category", categoryRoute);
+app.use("/review", reviewRoute);
 
 app.listen(
   PORT,
