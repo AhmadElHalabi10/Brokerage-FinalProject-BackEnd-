@@ -11,6 +11,7 @@ import aboutUsRoute from "./routes/aboutUsRoute.js";
 import propertyRoute from "./routes/propertyRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
 import messageRoute from "./routes/messageRoute.js";
+import offerRoute from "./routes/offerRoute.js";
 
 dotenv.config();
 await connectDB();
@@ -40,6 +41,7 @@ app.use("/property", propertyRoute);
 app.use("/category", categoryRoute);
 app.use("/review", reviewRoute);
 app.use("/message", messageRoute);
+app.use("/offer", offerRoute);
 
 app.listen(
   PORT,
