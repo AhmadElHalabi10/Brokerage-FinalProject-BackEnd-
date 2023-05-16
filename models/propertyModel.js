@@ -22,14 +22,14 @@ const propertySchema = new Schema(
       type: Number,
       require: true,
     },
-    // category_Id: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: "category",
-    // },
-    // message_Id: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: "message",
-    // },
+    category_Id: {
+      type: Schema.Types.ObjectId,
+      ref: "category",
+    },
+    message_Id: {
+      type: Schema.Types.ObjectId,
+      ref: "message",
+    },
     status: {
       type: String,
       require: true,
@@ -38,8 +38,11 @@ const propertySchema = new Schema(
   },
   { collection: "Property", timestamps: true }
 );
-// propertySchema.pre(["find", "findOne"], function () {
-//   this.populate("category");
-// });
+propertySchema.pre(["find", "findOne"], function () {
+  this.populate("category");
+});
+propertySchema.pre(["find", "findOne"], function () {
+  this.populate("message");
+});
 const Property = model("property", propertySchema);
 export default Property;
