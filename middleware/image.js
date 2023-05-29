@@ -1,4 +1,5 @@
 import multer from "multer";
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
@@ -16,7 +17,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 export default function (req, res, next) {
-  upload.single("picture")(req, res, (err) => {
+  upload.single("image")(req, res, (err) => {
     if (err) {
       return next(err);
     }

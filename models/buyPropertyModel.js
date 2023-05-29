@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const propertySchema = new Schema(
+const buyPropertySchema = new Schema(
   {
     image: {
       type: String,
@@ -40,7 +40,7 @@ const propertySchema = new Schema(
     //   default: "buy",
     // },
   },
-  { collection: "Property", timestamps: true }
+  { collection: "BuyProperty", timestamps: true }
 );
 // propertySchema.pre(["find", "findOne"], function () {
 //   this.populate("category");
@@ -48,5 +48,5 @@ const propertySchema = new Schema(
 // propertySchema.pre(["find", "findOne"], function () {
 //   this.populate("message");
 // });
-const Property = model("property", propertySchema);
-export default Property;
+const BuyProperty = model("buyProperty", buyPropertySchema);
+export default BuyProperty;

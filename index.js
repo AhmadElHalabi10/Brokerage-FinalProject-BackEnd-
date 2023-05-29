@@ -8,7 +8,9 @@ import cors from "cors";
 
 import adminRoute from "./routes/adminRoute.js";
 import aboutUsRoute from "./routes/aboutUsRoute.js";
-import propertyRoute from "./routes/propertyRoute.js";
+import buyPropertyRoute from "./routes/buyPropertyRoute.js";
+import rentPropertyRoute from "./routes/rentPropertyRoute.js";
+
 import categoryRoute from "./routes/categoryRoute.js";
 import reviewRoute from "./routes/reviewRoute.js";
 import messageRoute from "./routes/messageRoute.js";
@@ -37,10 +39,18 @@ app.get("/", (req, res) => {
   res.send("API is running ...");
 });
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Replace with your frontend domain
+    methods: ["GET", "POST"], // Specify the allowed HTTP methods
+  })
+);
+
 app.use("/auth", adminRoute);
 app.use("/aboutus", aboutUsRoute);
-app.use("/property", propertyRoute);
+app.use("/buyproperty", buyPropertyRoute);
+app.use("/rentproperty", rentPropertyRoute);
+
 app.use("/category", categoryRoute);
 app.use("/review", reviewRoute);
 app.use("/message", messageRoute);
