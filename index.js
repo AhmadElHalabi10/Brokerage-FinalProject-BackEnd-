@@ -39,12 +39,7 @@ app.get("/", (req, res) => {
   res.send("API is running ...");
 });
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Replace with your frontend domain
-    methods: ["GET", "POST"], // Specify the allowed HTTP methods
-  })
-);
+app.use(cors());
 
 app.use("/auth", adminRoute);
 app.use("/aboutus", aboutUsRoute);
