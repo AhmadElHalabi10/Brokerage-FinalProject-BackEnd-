@@ -34,7 +34,7 @@ export function isGeneralAdmin(req, res, next) {
   try {
     if (req.user.role === "admin") {
       return res.send({ message: "Hello admin!" });
-    } else if (req.user.role === 0 || req.user.role === 1) {
+    } else if (req.user.role === "admin" || req.user.role === "superAdmin") {
       next();
     } else {
       return res.send({ message: "you are not an  admin" });

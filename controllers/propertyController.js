@@ -15,24 +15,24 @@ class Controller {
     }
   }
   // getAllProperty have the same subCategory
-  async getCategory(req, res, next) {
-    let { id } = req.params;
-    try {
-      const property = await Property.find({ subCategory: id });
-      if (!property) {
-        return res
-          .status(404)
-          .json({ error: "Not Product found in this category  " });
-      }
-      res
-        .status(200)
-        .json({ success: "Property found in this category", property });
-    } catch (err) {
-      next(err);
-    }
-  }
+  // async getCategory(req, res, next) {
+  //   let { id } = req.params;
+  //   try {
+  //     const property = await Property.find({ subCategory: id });
+  //     if (!property) {
+  //       return res
+  //         .status(404)
+  //         .json({ error: "Not Product found in this category  " });
+  //     }
+  //     res
+  //       .status(200)
+  //       .json({ success: "Property found in this category", property });
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // }
   // get Property using ID
-  async getById(req, res, next) {
+  async getPropertyById(req, res, next) {
     let { id } = req.params;
     try {
       const product = await Property.findOne({ _id: id });
@@ -45,7 +45,7 @@ class Controller {
     }
   }
   // get all Property
-  async getAll(req, res, next) {
+  async getAllProperties(req, res, next) {
     try {
       const response = await Property.find({});
       res

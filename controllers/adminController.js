@@ -6,7 +6,7 @@ import mailgun from "mailgun-js";
 class Controller {
   // Register
   async register(req, res, next) {
-    const { userName, password, email, firstName, lastName } = req.body;
+    const { userName, email, password, firstName, lastName } = req.body;
     if (!password || password.length < 6) {
       return res.status(400).json({
         message:
@@ -75,7 +75,7 @@ class Controller {
         // comparing given password with hashed password
         bcrypt.compare(password, user.password).then(function (result) {
           if (result) {
-            const maxAge = 3 * 60 * 60;
+            const maxAge = 3 * 60 * 60 * 1000;
             const token = jwt.sign(
               { id: user._id, userName, role: user.role },
 
@@ -120,7 +120,7 @@ class Controller {
     }
   }
   // Change the role
-  async upgradeRole(res, req, next) {
+  async upgradeRole(req, res, next) {
     const { role } = req.body;
     const { id } = req.params;
     // Verify if role and id are present

@@ -10,8 +10,11 @@ import adminRoute from "./routes/adminRoute.js";
 import aboutUsRoute from "./routes/aboutUsRoute.js";
 import propertyRoute from "./routes/propertyRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
+import reviewRoute from "./routes/reviewRoute.js";
 import messageRoute from "./routes/messageRoute.js";
 import offerRoute from "./routes/offerRoute.js";
+
+import cardMainRoute from "./routes/cardMainRoute.js";
 
 dotenv.config();
 await connectDB();
@@ -20,7 +23,7 @@ const PORT = process.env.PORT || 3000;
 
 const app = new express();
 
-if (process.env.NODE_ENV === "master") {
+if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
@@ -42,6 +45,7 @@ app.use("/category", categoryRoute);
 app.use("/review", reviewRoute);
 app.use("/message", messageRoute);
 app.use("/offer", offerRoute);
+app.use("/cardMain", cardMainRoute);
 
 app.listen(
   PORT,
