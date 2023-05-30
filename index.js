@@ -7,16 +7,9 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 import adminRoute from "./routes/adminRoute.js";
-import aboutUsRoute from "./routes/aboutUsRoute.js";
 import buyPropertyRoute from "./routes/buyPropertyRoute.js";
 import rentPropertyRoute from "./routes/rentPropertyRoute.js";
-
-import categoryRoute from "./routes/categoryRoute.js";
-import reviewRoute from "./routes/reviewRoute.js";
-import messageRoute from "./routes/messageRoute.js";
-import offerRoute from "./routes/offerRoute.js";
-
-import cardMainRoute from "./routes/cardMainRoute.js";
+import contactUsRoute from "./routes/contactUsRoute.js";
 
 dotenv.config();
 await connectDB();
@@ -42,15 +35,9 @@ app.get("/", (req, res) => {
 app.use(cors());
 
 app.use("/auth", adminRoute);
-app.use("/aboutus", aboutUsRoute);
 app.use("/buyproperty", buyPropertyRoute);
 app.use("/rentproperty", rentPropertyRoute);
-
-app.use("/category", categoryRoute);
-app.use("/review", reviewRoute);
-app.use("/message", messageRoute);
-app.use("/offer", offerRoute);
-app.use("/cardMain", cardMainRoute);
+app.use("/contactUs", contactUsRoute);
 
 app.listen(
   PORT,

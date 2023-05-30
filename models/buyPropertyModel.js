@@ -10,6 +10,10 @@ const buyPropertySchema = new Schema(
       type: String,
       required: true,
     },
+    place: {
+      type: String,
+      required: true,
+    },
     numberBedRoom: {
       type: Number,
       required: true,

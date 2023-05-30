@@ -43,7 +43,7 @@ class Controller {
   async editRentProperty(req, res, next) {
     const { id } = req.params;
     await RentProperty.findOneAndUpdate({ _id: id }, req.body)
-      .then((buyProperty) => {
+      .then((rentProperty) => {
         if (req.body.image) fs.unlinkSync(rentProperty.image);
         res.status(200).send({ status: 200, message: rentProperty });
       })
