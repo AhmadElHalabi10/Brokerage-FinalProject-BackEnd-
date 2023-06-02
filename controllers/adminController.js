@@ -92,6 +92,8 @@ class Controller {
             res.status(201).json({
               message: "Admin successfully Logged in",
               user: user._id,
+              userName: user.userName,
+              role: user.role,
               token,
             });
             const data = {
