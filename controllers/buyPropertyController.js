@@ -14,23 +14,6 @@ class Controller {
       next(err);
     }
   }
-  // getAllProperty have the same subCategory
-  // async getCategory(req, res, next) {
-  //   let { id } = req.params;
-  //   try {
-  //     const property = await Property.find({ subCategory: id });
-  //     if (!property) {
-  //       return res
-  //         .status(404)
-  //         .json({ error: "Not Product found in this category  " });
-  //     }
-  //     res
-  //       .status(200)
-  //       .json({ success: "Property found in this category", property });
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // }
 
   // get BuyProperty using ID
   async getBuyPropertyById(req, res, next) {
